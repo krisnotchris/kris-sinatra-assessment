@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701205001) do
+ActiveRecord::Schema.define(version: 20160701234728) do
 
   create_table "users", force: true do |t|
     t.string "username"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20160701205001) do
   end
 
   create_table "workouts", force: true do |t|
-    t.string  "name"
-    t.integer "weight"
-    t.integer "reps"
-    t.integer "user_id"
+    t.string "name"
+    t.string "weight"
+    t.string "sets"
+    t.string "reps"
   end
 
 end
