@@ -9,8 +9,12 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "supersneaky"
   end
 
-  get '/' do 
-    erb :'/index'
+  get '/' do
+    if logged_in?
+      redirect '/workouts'
+    else
+      erb :'/index'
+    end
   end
 
   helpers do
