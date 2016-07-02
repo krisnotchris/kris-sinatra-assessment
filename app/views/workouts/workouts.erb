@@ -8,10 +8,10 @@
 <p>Weight: <%= workout.weight %></p>
 <p>Sets: <%= workout.sets %></p>
 <p>Reps: <%= workout.reps %></p>
-<form method="post" action="/tasks/<%=@task.id%>">
+<form method="post" action="/workouts/<%= workout.id %>">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
-<form>
-<p><a href='/workouts/<%= workout.id %>'>delete</a></p>
-<p><a href="/edit">edit</a></p>
+</form>
+
+<p><a href="/workouts/<%= workout.id %>/edit">edit</a></p>
 <%end%>

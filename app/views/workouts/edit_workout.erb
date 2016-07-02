@@ -1,0 +1,12 @@
+<h1>Workout Edit</h1>
+
+<form method="post" action="/workouts/<%= @workout.id %>">
+
+<input id="hidden" type="hidden" name="_method" value="patch">
+Name: <input type="text" name="user[workout][][name]" value="<%= @workout.name %>" placeholder="<%= @workout.name %>">
+Weight: <input type="text" name="user[workout][][weight]" value="<%= @workout.weight %>" placeholder="<%= @workout.weight %>">
+Sets: <input type="text" name="user[workout][][sets]" value="<%= @workout.sets %>" placeholder="<%= @workout.sets %>">
+Reps: <input type="text" name="user[workout][][reps]" value="<%= @workout.reps %>" placeholder="<%= @workout.reps %>">
+
+<input class="btn btn-primary" type="submit" name="edit" value="Save">
+</form>
