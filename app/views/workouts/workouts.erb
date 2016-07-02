@@ -1,7 +1,17 @@
 <h1>Welcome back <%=@user.username.upcase%>!</h1>
-Workout History
-<p>blah</p>
-<p>blah</p>
+<h2>Workout History</h2>
 <h2><a href='/workouts/new'>Add</a></h2>
-<a href='/delete'>delete</a>
-<a href="/edit">edit</a>
+
+
+<% @workouts.each do |workout| %>
+<p>Name: <%= workout.name %></p>
+<p>Weight: <%= workout.weight %></p>
+<p>Sets: <%= workout.sets %></p>
+<p>Reps: <%= workout.reps %></p>
+<form method="post" action="/tasks/<%=@task.id%>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+<form>
+<p><a href='/workouts/<%= workout.id %>'>delete</a></p>
+<p><a href="/edit">edit</a></p>
+<%end%>
