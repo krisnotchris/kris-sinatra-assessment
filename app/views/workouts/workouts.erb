@@ -1,17 +1,15 @@
 <h1>Welcome back <%=@user.username.capitalize%>!</h1>
 <h4>Workout History</h4>
-<br></br>
-
 
 <% @workouts.each do |workout| %>
-<p>Name: <%= workout.name %></p>
-<p>Weight: <%= workout.weight %></p>
-<p>Sets: <%= workout.sets %></p>
-<p>Reps: <%= workout.reps %></p>
+<strong>Name:</strong> <%= workout.name %><br>
+<strong>Weight:</strong> <%= workout.weight %><br>
+<strong>Sets:</strong> <%= workout.sets %><br>
+<strong>Reps:</strong> <%= workout.reps %>
+<br>
+<button type="button" id="edit_button"'><a href="/workouts/<%= workout.id %>/edit">edit</a></button>
 <form method="post" action="/workouts/<%= workout.id %>">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
-</form>
-
-<button type="button" id="edit_button"'><a href="/workouts/<%= workout.id %>/edit">edit</a></button>
+</form><br>
 <%end%>
