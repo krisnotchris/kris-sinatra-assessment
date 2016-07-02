@@ -1,11 +1,13 @@
 class WorkoutsController < ApplicationController
-  get '/workouts' do 
+  get '/workouts' do
+    redirect_if_not_logged_in 
     @user = current_user
     @workouts = @user.workouts.all
     erb :'/workouts/workouts'
   end
 
   get '/workouts/new' do
+    redirect_if_not_logged_in
     if logged_in? 
       erb :'/workouts/create_workout'
     else
@@ -31,7 +33,8 @@ class WorkoutsController < ApplicationController
     redirect '/workouts'
   end
 
-  get '/workouts/:id/edit' do 
+  get '/workouts/:id/edit' do
+  redirect_if_not_logged_in 
     @workout = Workout.find_by_id(params[:id])
     erb :'/workouts/edit_workout'
   end

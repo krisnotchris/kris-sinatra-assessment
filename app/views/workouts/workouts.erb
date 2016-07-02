@@ -1,6 +1,6 @@
-<h1>Welcome back <%=@user.username.upcase%>!</h1>
-<h2>Workout History</h2>
-<h2><a href='/workouts/new'>Add</a></h2>
+<h1>Welcome back <%=@user.username.capitalize%>!</h1>
+<h4>Workout History</h4>
+<br></br>
 
 
 <% @workouts.each do |workout| %>
@@ -12,6 +12,6 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
 </form>
-<button type="button"><a href="/workouts/<%= workout.id %>/edit">edit</a></button>
-<p><a href="/workouts/<%= workout.id %>/edit">edit</a></p>
+
+<button type="button" id="edit_button"'><a href="/workouts/<%= workout.id %>/edit">edit</a></button>
 <%end%>
